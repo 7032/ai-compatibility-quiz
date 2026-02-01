@@ -165,7 +165,19 @@ function App() {
               ))}
             </div>
 
-            <div className="text-center">
+            <div className="text-center space-y-4">
+              <a
+                href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(`🤖AI相性診断の結果\n\n${sortedScores.map(item => `${item.icon}${item.name}: ${item.score}%`).join('\n')}\n\n私と最も相性が良いのは「${topMatch.name}」でした！\n\nあなたも診断してみよう👇\n${window.location.href}`)}&hashtags=${encodeURIComponent('AI相性診断')}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-black hover:bg-gray-800 text-white font-bold py-3 px-10 rounded-full text-lg transition-all transform hover:scale-105 shadow-lg"
+              >
+                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                </svg>
+                Xへ投稿する
+              </a>
+              <br />
               <button
                 onClick={handleRestart}
                 className="bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white font-bold py-3 px-10 rounded-full text-lg transition-all transform hover:scale-105 shadow-lg"
