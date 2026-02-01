@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { questions, aiModels, calculateScores } from './quizData';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar } from 'recharts';
 
@@ -15,13 +15,18 @@ function App() {
   const handleAnswer = (optionScores) => {
     const newAnswers = [...answers, optionScores];
     setAnswers(newAnswers);
-
+    
     if (currentQuestion < questions.length - 1) {
       setCurrentQuestion(currentQuestion + 1);
-    } else {
-      setShowResults(true);
     }
   };
+
+  // 全ての質問に答えたら結果を表示
+  useEffect(() => {
+    if (answers.length === questions.length && answers.length > 0) {
+      setShowResults(true);
+    }
+  }, [answers]);
 
   const handleRestart = () => {
     setCurrentQuestion(0);

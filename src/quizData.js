@@ -127,8 +127,11 @@ export const calculateScores = (answers) => {
   };
 
   answers.forEach(answer => {
-    Object.entries(answer.scores).forEach(([ai, score]) => {
-      scores[ai] += score;
+    // answer は option.scores オブジェクトそのもの
+    Object.entries(answer).forEach(([ai, score]) => {
+      if (scores.hasOwnProperty(ai)) {
+        scores[ai] += score;
+      }
     });
   });
 
