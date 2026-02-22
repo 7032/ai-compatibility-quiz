@@ -14,7 +14,6 @@
 - **フロントエンド**: React + Vite
 - **スタイリング**: Tailwind CSS
 - **チャート**: Recharts
-- **サーバー**: Express.js（静的ファイル配信用）
 
 ## ローカル開発
 
@@ -35,78 +34,6 @@ npm run build
 ```
 
 `dist` ディレクトリにビルド済みファイルが出力されます。
-
-## Herokuへのデプロイ手順
-
-### 1. Heroku CLIのインストール
-
-```bash
-# macOS
-brew tap heroku/brew && brew install heroku
-
-# Ubuntu/Debian
-curl https://cli-assets.heroku.com/install.sh | sh
-```
-
-### 2. Herokuにログイン
-
-```bash
-heroku login
-```
-
-### 3. Herokuアプリの作成
-
-```bash
-heroku create あなたのアプリ名
-```
-
-アプリ名を省略すると、ランダムな名前が自動生成されます。
-
-### 4. Git設定（まだの場合）
-
-```bash
-git init
-git add .
-git commit -m "Initial commit"
-```
-
-### 5. Herokuにデプロイ
-
-```bash
-git push heroku main
-```
-
-または、masterブランチを使用している場合:
-
-```bash
-git push heroku master
-```
-
-### 6. アプリを開く
-
-```bash
-heroku open
-```
-
-## 環境変数
-
-このアプリは特別な環境変数を必要としません。ポート番号は自動的にHerokuから割り当てられます。
-
-## トラブルシューティング
-
-### デプロイ後にアプリが起動しない
-
-ログを確認:
-```bash
-heroku logs --tail
-```
-
-### ビルドエラーが発生する
-
-Node.jsのバージョンを確認:
-```bash
-heroku config:set NODE_ENV=production
-```
 
 ## カスタマイズ
 
